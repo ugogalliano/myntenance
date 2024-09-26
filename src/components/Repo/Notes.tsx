@@ -19,5 +19,11 @@ export function Notes({ projectNotes, projectId }: Props) {
     }
   }, [debouncedTitle, projectId, projectNotes])
 
-  return <Textarea onChange={(e) => setTitle(e.target.value)} value={title} />
+  return (
+    <Textarea
+      id="notes-project"
+      onChange={(e) => setTitle(e.target.value)}
+      value={title}
+    />
+  )
 }

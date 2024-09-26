@@ -1,3 +1,4 @@
+"use client"
 import { login } from "@/app/auth/actions"
 import { User } from "@supabase/supabase-js"
 import Link from "next/link"
@@ -6,16 +7,26 @@ import { BorderBeam } from "./magicui/border-beam"
 import SparklesText from "./magicui/sparkles-text"
 import { SignInButton } from "./SignInButton"
 import { Button } from "./ui/button"
-
+import { useDriver } from "@/hooks/useDriver"
+import {
+  heroConfigDriver,
+  heroConfigDriverField,
+} from "@/lib/driver/config-driver"
 type Props = {
   user: User | null
 }
 
-export default async function Hero({ user }: Props) {
+export default function Hero({ user }: Props) {
+  /** Display the onboarding tutorial only on the user's first visit to the platform */
+  useDriver(heroConfigDriver, heroConfigDriverField, !!user)
+
   return (
     <div className="mt-10 flex flex-col items-center gap-10 px-4">
       <BlurFade delay={0.1}>
-        <h2 className="max-w-[700px] text-4xl font-bold leading-normal md:text-6xl">
+        <h2
+          className="max-w-[700px] text-4xl font-bold leading-normal md:text-6xl"
+          id="welcome"
+        >
           Your next{" "}
           <span className="bg-gradient-to-r from-primary to-green-300 bg-clip-text text-transparent">
             side project
@@ -44,7 +55,7 @@ export default async function Hero({ user }: Props) {
             </Link>
           </Button>
         ) : (
-          <form action={login} className="mx-auto w-32">
+          <form action={login} id="sign-in-form" className="mx-auto w-32">
             <SignInButton />
           </form>
         )}

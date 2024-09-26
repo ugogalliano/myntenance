@@ -61,7 +61,7 @@ export function TasksTable({
   })
 
   return (
-    <DataTable table={table}>
+    <DataTable id="task-table" table={table}>
       <DataTableToolbar table={table} filterFields={filterFields}>
         <TasksTableToolbarActions table={table} projectId={projectId} />
       </DataTableToolbar>

@@ -1,3 +1,4 @@
+import { DriverButton } from "@/components/DriverButton"
 import { Notes } from "@/components/Repo/Notes"
 import { RepoPublicDisplayToggle } from "@/components/Repo/RepoPublicDisplayToggle"
 import DeleteRepoButton from "@/components/RepoList/DeleteRepoButton"
@@ -14,6 +15,10 @@ import { getProject } from "@/services/project/api"
 import { SearchParams } from "@/types"
 import Image from "next/image"
 import Link from "next/link"
+import {
+  repoConfigDriver,
+  repoConfigDriverField,
+} from "@/lib/driver/config-driver"
 
 export default async function Page({
   params: { projectId },
@@ -88,6 +93,10 @@ export default async function Page({
         />
         <DetailItem label="Language" value={repository.language?.toString()} />
       </div>
+      <DriverButton
+        driverConfig={repoConfigDriver}
+        localStorageFields={repoConfigDriverField}
+      />
       <h3>Notes</h3>
       <Notes projectId={projectId} projectNotes={project.notes ?? ""} />
       <h3 className="text-lg">Tasks</h3>
@@ -96,7 +105,7 @@ export default async function Page({
         searchParams={searchParams}
         repositoryFullName={repository.full_name}
       />
-      <Card>
+      <Card id="danger-zone">
         <CardHeader>
           <CardTitle>Danger Zone</CardTitle>
         </CardHeader>

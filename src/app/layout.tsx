@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
+import "driver.js/dist/driver.css"
+import "../lib/driver/custom-driver.css"
 import Header from "@/components/Header"
 import Providers from "./providers"
 import { WorkInProgressBanner } from "@/components/WorkInProgressBanner"
