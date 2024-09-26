@@ -1,0 +1,42 @@
+.driver-popover.driverjs-theme {
+  @apply bg-gradient-to-r from-primary to-green-300;
+}
+
+.driver-popover.driverjs-theme .driver-popover-title {
+  @apply text-lg;
+}
+
+.driver-popover.driverjs-theme .driver-popover-title,
+.driver-popover.driverjs-theme .driver-popover-description,
+.driver-popover.driverjs-theme .driver-popover-progress-text {
+  @apply text-black;
+}
+
+.driver-popover.driverjs-theme button {
+  @apply ml-2 flex-1 rounded-md bg-black px-3 py-2 text-center text-white;
+  text-shadow: none;
+}
+
+.driver-popover.driverjs-theme button:hover {
+  @apply bg-white text-black transition-all duration-75 ease-in-out;
+}
+
+.driver-popover.driverjs-theme
+  .driver-popover-arrow-side-left.driver-popover-arrow {
+  @apply border-l-green-300;
+}
+
+.driver-popover.driverjs-theme
+  .driver-popover-arrow-side-right.driver-popover-arrow {
+  @apply border-r-primary;
+}
+
+.driver-popover.driverjs-theme
+  .driver-popover-arrow-side-top.driver-popover-arrow {
+  @apply border-t-primary;
+}
+
+.driver-popover.driverjs-theme
+  .driver-popover-arrow-side-bottom.driver-popover-arrow {
+  @apply border-b-primary;
+}
